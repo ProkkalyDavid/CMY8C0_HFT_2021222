@@ -5,4 +5,8 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CMY8C0_HFT_2021222.Models\CMY8C0_HFT_2021222.Models.csproj" />
+  </ItemGroup>
+
 </Project>
