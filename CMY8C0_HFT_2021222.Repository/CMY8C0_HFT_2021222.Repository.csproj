@@ -10,10 +10,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Cars.mdf">
+    <Content Include="Database\Cars.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Cars_log.ldf">
+    <Content Include="Database\Cars_log.ldf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
