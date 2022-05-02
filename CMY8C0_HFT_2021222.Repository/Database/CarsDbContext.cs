@@ -23,8 +23,7 @@ namespace CMY8C0_HFT_2021222.Repository
         {
             if (!builder.IsConfigured)
             {
-                string conn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Cars.mdf;Integrated Security=True;MultipleActiveResultSets=true";
-                builder.UseLazyLoadingProxies().UseSqlServer(conn);
+                builder.UseLazyLoadingProxies().UseInMemoryDatabase("Cars");
             }
         }
 
