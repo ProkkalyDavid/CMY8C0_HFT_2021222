@@ -26,12 +26,11 @@ namespace CMY8C0_HFT_2021222.Repository
             ctx.SaveChanges();
         }
 
-        public abstract T Read(int id);
-
         public IQueryable<T> ReadALl()
         {
             return ctx.Set<T>();
         }
+        public abstract T Read(int id);
 
         public abstract void Update(T item);
     }
