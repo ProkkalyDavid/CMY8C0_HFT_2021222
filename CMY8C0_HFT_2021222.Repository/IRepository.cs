@@ -9,7 +9,7 @@ namespace CMY8C0_HFT_2021222.Repository
     public interface IRepository<T> where T : class
     {
         void Create(T item);
-        void Read(int id);
+        T Read(int id);
         IQueryable<T> ReadALl();
         void Update(T item);
         void Delete(int id);

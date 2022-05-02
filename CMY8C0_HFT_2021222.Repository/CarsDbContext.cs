@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CMY8C0_HFT_2021222.Repository
 {
-    internal class CarsDbContext : DbContext
+    public class CarsDbContext : DbContext
     {
         public DbSet<Brand> Brands { get; set; }
         public DbSet<Car> Cars { get; set; }
