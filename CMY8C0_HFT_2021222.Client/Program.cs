@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CMY8C0_HFT_2021222.Repository;
+using System;
+using System.Linq;
 
 namespace CMY8C0_HFT_2021222.Client
 {
