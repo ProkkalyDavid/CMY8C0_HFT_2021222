@@ -6,7 +6,7 @@ using CMY8C0_HFT_2021222.Repository;
 
 namespace CMY8C0_HFT_2021222.Logic
 {
-    public class CarLogic
+    public class CarLogic : ICarLogic
     {
         IRepository<Car> repository;
 
