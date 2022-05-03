@@ -15,7 +15,7 @@ namespace CMY8C0_HFT_2021222.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string Name { get; set; }
-        public int Cilinders { get; set; }
+        public int Cylinders { get; set; }
         public int Hp { get; set; }
         public int Torqe { get; set; }
         [NotMapped]

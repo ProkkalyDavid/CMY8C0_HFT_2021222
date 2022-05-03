@@ -10,7 +10,7 @@ namespace CMY8C0_HFT_2021222.Repository
     {
         void Create(T item);
         T Read(int id);
-        IQueryable<T> ReadALl();
+        IQueryable<T> ReadAll();
         void Update(T item);
         void Delete(int id);
     }

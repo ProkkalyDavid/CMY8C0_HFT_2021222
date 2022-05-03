@@ -26,7 +26,7 @@ namespace CMY8C0_HFT_2021222.Repository
             ctx.SaveChanges();
         }
 
-        public IQueryable<T> ReadALl()
+        public IQueryable<T> ReadAll()
         {
             return ctx.Set<T>();
         }

@@ -69,11 +69,11 @@ namespace CMY8C0_HFT_2021222.Repository
             Brand Mercedes = new Brand { Id = 4, Name = "Mercedes-Benz", Country = "Germany" };
             Brand Ford = new Brand { Id = 5, Name = "Ford", Country = "United States of Amrica" };
 
-            Engine S63 = new Engine() { Id = 1, Name = "S63", Hp = 617, Torqe = 750, Cilinders = 8 };
-            Engine EB2DTS = new Engine() { Id = 2, Name = " EB2ADTD/EB2DTS", Hp = 182, Torqe = 230, Cilinders = 4 };
-            Engine K20C1 = new Engine() { Id = 3, Name = "K20C1 turbocharged I4", Hp = 316, Torqe = 350, Cilinders = 4 };
-            Engine M177 = new Engine() { Id = 4, Name = "M177 DE40 LA", Hp = 604, Torqe = 850, Cilinders = 8 };
-            Engine TDCi = new Engine() { Id = 5, Name = "Duratorq TDCi", Hp = 170, Torqe = 400, Cilinders = 4 };
+            Engine S63 = new Engine() { Id = 1, Name = "S63", Hp = 617, Torqe = 750, Cylinders = 8 };
+            Engine EB2DTS = new Engine() { Id = 2, Name = " EB2ADTD/EB2DTS", Hp = 182, Torqe = 230, Cylinders = 4 };
+            Engine K20C1 = new Engine() { Id = 3, Name = "K20C1 turbocharged I4", Hp = 316, Torqe = 350, Cylinders = 4 };
+            Engine M177 = new Engine() { Id = 4, Name = "M177 DE40 LA", Hp = 604, Torqe = 850, Cylinders = 8 };
+            Engine TDCi = new Engine() { Id = 5, Name = "Duratorq TDCi", Hp = 170, Torqe = 400, Cylinders = 4 };
 
             Car X6 = new Car() { Id = 1, Name = "X6", Year = 2022, Km = 8763, BrandId = BMW.Id, EngineId = S63.Id };
             Car Mokka = new Car() { Id = 2, Name = "Mokka", Year = 2020, Km = 27504, BrandId = Opel.Id, EngineId = EB2DTS.Id };
