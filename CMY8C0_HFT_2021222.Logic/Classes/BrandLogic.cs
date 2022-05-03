@@ -11,6 +11,12 @@ namespace CMY8C0_HFT_2021222.Logic
     public class BrandLogic : IBrandLogic
     {
         IRepository<Brand> repository;
+
+        public BrandLogic(IRepository<Brand> repository)
+        {
+            this.repository = repository;
+        }
+
         public void Create(Brand item)
         {
             if (item.Name == null)

@@ -53,8 +53,6 @@ namespace CMY8C0_HFT_2021222.Client
         static void Main(string[] args)
         {
             rest = new RestService("http://localhost:3764/","car");
-
-            ConsoleMenu menu = new 
         }
     }
 }

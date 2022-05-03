@@ -19,7 +19,14 @@ namespace CMY8C0_HFT_2021222.Logic
 
         public void Create(Engine item)
         {
-            this.repository.Create(item);
+            if (item.Hp <= 0)
+            {
+                throw new Exception();
+            }
+            else
+            {
+                this.repository.Create(item);
+            }
         }
 
         public void Delete(int id)
