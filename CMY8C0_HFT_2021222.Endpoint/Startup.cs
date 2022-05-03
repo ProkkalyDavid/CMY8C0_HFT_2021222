@@ -1,5 +1,5 @@
-using CMY8C0_HFT_2021222.Models;
 using CMY8C0_HFT_2021222.Logic;
+using CMY8C0_HFT_2021222.Models;
 using CMY8C0_HFT_2021222.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -28,8 +28,6 @@ namespace CMY8C0_HFT_2021222.Endpoint
             services.AddTransient<ICarLogic, CarLogic>();
             services.AddTransient<IBrandLogic, BrandLogic>();
             services.AddTransient<IEngineLogic, EngineLogic>();
-
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

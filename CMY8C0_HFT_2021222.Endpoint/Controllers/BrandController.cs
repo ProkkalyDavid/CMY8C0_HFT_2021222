@@ -7,46 +7,46 @@ using System.Collections.Generic;
 
 namespace CMY8C0_HFT_2021222.Endpoint.Controllers
 {
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
-    public class CarController : ControllerBase
+    public class BrandController : ControllerBase
     {
-        ICarLogic logic;
+        IBrandLogic logic;
 
-        public CarController(ICarLogic logic)
+        public BrandController(IBrandLogic logic)
         {
             this.logic = logic;
         }
 
-        // GET: api/<CarController>
+        // GET: api/<BrandController>
         [HttpGet]
-        public IEnumerable<Car> ReadAll()
+        public IEnumerable<Brand> Get()
         {
             return this.logic.ReadAll();
         }
 
-        // GET api/<CarController>/5
+        // GET api/<BrandController>/5
         [HttpGet("{id}")]
-        public Car Read(int id)
+        public Brand Read(int id)
         {
             return this.logic.Read(id);
         }
 
-        // POST api/<CarController>
+        // POST api/<BrandController>
         [HttpPost]
-        public void Create([FromBody] Car value)
+        public void Create([FromBody] Brand value)
         {
             this.logic.Create(value);
         }
 
-        // PUT api/<CarController>/5
+        // PUT api/<BrandController>/5
         [HttpPut]
-        public void Update([FromBody] Car value)
+        public void Update([FromBody] Brand value)
         {
             this.logic.Update(value);
         }
 
-        // DELETE api/<CarController>/5
+        // DELETE api/<BrandController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
