@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace CMY8C0_HFT_2021222.Endpoint.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class BrandController : ControllerBase
     {
