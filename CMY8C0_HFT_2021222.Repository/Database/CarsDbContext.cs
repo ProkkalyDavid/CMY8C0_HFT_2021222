@@ -72,17 +72,17 @@ namespace CMY8C0_HFT_2021222.Repository
             Engine S63 = new Engine() { Id = 1, Name = "S63", Hp = 617, Torqe = 750, Cylinders = 8 };
             Engine EB2DTS = new Engine() { Id = 2, Name = " EB2ADTD/EB2DTS", Hp = 182, Torqe = 230, Cylinders = 4 };
             Engine K20C1 = new Engine() { Id = 3, Name = "K20C1 turbocharged I4", Hp = 316, Torqe = 350, Cylinders = 4 };
-            Engine M177 = new Engine() { Id = 4, Name = "M177 DE40 LA", Hp = 604, Torqe = 850, Cylinders = 8 };
+            Engine OM654 = new Engine() { Id = 4, Name = "OM654 DE20 SCR", Hp = 194, Torqe = 400, Cylinders = 4 };
             Engine TDCi = new Engine() { Id = 5, Name = "Duratorq TDCi", Hp = 170, Torqe = 400, Cylinders = 4 };
 
             Car X6 = new Car() { Id = 1, Name = "X6", Year = 2022, Km = 8763, BrandId = BMW.Id, EngineId = S63.Id };
             Car Mokka = new Car() { Id = 2, Name = "Mokka", Year = 2020, Km = 27504, BrandId = Opel.Id, EngineId = EB2DTS.Id };
             Car Civic = new Car() { Id = 3, Name = "Civic Type R", Year = 2021, Km = 13400, BrandId = Honda.Id, EngineId = K20C1.Id };
-            Car EClass = new Car() { Id = 4, Name = "E220d", Year = 2019, Km = 58640, BrandId = Mercedes.Id, EngineId = M177.Id };
-            Car Transit = new Car() { Id = 5, Name = "Transit Custom Sport", Year = 2022, BrandId = Ford.Id, EngineId = TDCi.Id };
+            Car EClass = new Car() { Id = 4, Name = "E220d", Year = 2019, Km = 58640, BrandId = Mercedes.Id, EngineId = OM654.Id };
+            Car Transit = new Car() { Id = 5, Name = "Transit Custom Sport", Year = 2022,Km = 670, BrandId = Ford.Id, EngineId = TDCi.Id };
 
             modelBuilder.Entity<Brand>().HasData(BMW, Opel, Honda, Mercedes, Ford);
-            modelBuilder.Entity<Engine>().HasData(S63, EB2DTS, K20C1, M177, TDCi);
+            modelBuilder.Entity<Engine>().HasData(S63, EB2DTS, K20C1, OM654, TDCi);
             modelBuilder.Entity<Car>().HasData(X6, Mokka, Civic, EClass, Transit);
         }
     }

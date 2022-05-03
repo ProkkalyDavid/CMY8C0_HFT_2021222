@@ -44,7 +44,7 @@ namespace CMY8C0_HFT_2021222.Logic
             }
         }
 
-        public IQueryable<Car> ReadALl()
+        public IQueryable<Car> ReadAll()
         {
             return this.repository.ReadAll();
         }
@@ -68,7 +68,7 @@ namespace CMY8C0_HFT_2021222.Logic
                         Km = x.Km,
                         BrandName = x.brand.Name,
                         CarName = x.Name
-                    });
+                    }).Take(1);
         }
 
         public IEnumerable<Car> GermanPremium()
@@ -96,7 +96,7 @@ namespace CMY8C0_HFT_2021222.Logic
                         BrandName = x.brand.Name,
                         CarName = x.Name,
                         EngineName = x.engine.Name
-                    });
+                    }).Take(1);
         }
     }
     public class HighestMileage

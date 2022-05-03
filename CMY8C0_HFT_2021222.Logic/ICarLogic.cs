@@ -14,7 +14,7 @@ namespace CMY8C0_HFT_2021222.Logic
         IEnumerable<HighestMileage> HighestMileage();
         IEnumerable<Oldest> OldestCar();
         Car Read(int id);
-        IQueryable<Car> ReadALl();
+        IQueryable<Car> ReadAll();
         void Update(Car item);
     }
 }
