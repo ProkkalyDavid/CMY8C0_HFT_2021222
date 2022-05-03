@@ -17,9 +17,9 @@ namespace CMY8C0_HFT_2021222.Logic
 
         public void Create(Car item)
         {
-            if (item.Km < 0)
+            if (item.Km < 0 || item.Name == null)
             {
-                throw new ArgumentException("Mileage can not be negative number");
+                throw new Exception();
             }
             else
             {
@@ -51,7 +51,14 @@ namespace CMY8C0_HFT_2021222.Logic
 
         public void Update(Car item)
         {
-            this.repository.Update(item);
+            if (item.Km < 0)
+            {
+                throw new Exception();
+            }
+            else
+            {
+                this.repository.Update(item);
+            }
         }
 
         public IEnumerable<Car> CasWithV8()

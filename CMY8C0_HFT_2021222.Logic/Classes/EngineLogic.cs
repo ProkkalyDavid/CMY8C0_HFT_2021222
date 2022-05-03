@@ -46,7 +46,14 @@ namespace CMY8C0_HFT_2021222.Logic
 
         public void Update(Engine item)
         {
-            this.repository.Update(item);
+            if (item.Hp < 1 || item.Name == null)
+            {
+                throw new Exception();
+            }
+            else
+            {
+                this.repository.Update(item);
+            }
         }
 
         public IEnumerable<MostHp> MostHps()
