@@ -2,6 +2,7 @@ using CMY8C0_HFT_2021222.Logic;
 using CMY8C0_HFT_2021222.Models;
 using CMY8C0_HFT_2021222.Repository;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
@@ -37,6 +38,15 @@ namespace CMY8C0_HFT_2021222.Endpoint
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseExceptionHandler(c => c.Run(async context =>
+            {
+                var exception = context.Features
+                    .Get<IExceptionHandlerPathFeature>()
+                    .Error;
+                var response = new {error = exception.Message};
+                await context.Response.WriteAsJsonAsync(response);
+            }));
 
             app.UseRouting();
 
