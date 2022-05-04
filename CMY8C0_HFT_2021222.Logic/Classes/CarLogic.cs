@@ -114,8 +114,8 @@ namespace CMY8C0_HFT_2021222.Logic
     }
     public class CarsaByBrands
     {
-        public int CarCount;
-        public string BrandName;
+        public int CarCount { get; set; }
+        public string BrandName { get; set; }
     }
     public class Oldest
     {
