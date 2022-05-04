@@ -20,7 +20,7 @@ namespace CMY8C0_HFT_2021222.Endpoint.Controllers
 
         // GET: api/<BrandController>
         [HttpGet]
-        public IEnumerable<Brand> Get()
+        public IEnumerable<Brand> ReadAll()
         {
             return this.logic.ReadAll();
         }

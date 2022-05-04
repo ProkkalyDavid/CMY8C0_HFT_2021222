@@ -7,7 +7,7 @@ namespace CMY8C0_HFT_2021222.Logic
     public interface ICarLogic
     {
         IEnumerable<CarsaByBrands> CarsByBrands();
-        IEnumerable<Car> CasWithV8();
+        IEnumerable<Car> CarsWithV8();
         void Create(Car item);
         void Delete(int id);
         IEnumerable<Car> GermanPremium();

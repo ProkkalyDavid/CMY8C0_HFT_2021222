@@ -61,7 +61,7 @@ namespace CMY8C0_HFT_2021222.Logic
             }
         }
 
-        public IEnumerable<Car> CasWithV8()
+        public IEnumerable<Car> CarsWithV8()
         {
             return repository.ReadAll().Where(t => t.engine.Cylinders == 8);
         }
