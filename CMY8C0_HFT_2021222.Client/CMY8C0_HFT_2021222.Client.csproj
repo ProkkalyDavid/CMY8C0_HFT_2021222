@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CMY8C0_HFT_2021222.Logic\CMY8C0_HFT_2021222.Logic.csproj" />
     <ProjectReference Include="..\CMY8C0_HFT_2021222.Models\CMY8C0_HFT_2021222.Models.csproj" />
   </ItemGroup>
 

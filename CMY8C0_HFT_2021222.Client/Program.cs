@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using CMY8C0_HFT_2021222.Logic;
 using CMY8C0_HFT_2021222.Models;
 using ConsoleTools;
 
 namespace CMY8C0_HFT_2021222.Client
 {
-    internal class Program
+    public class Program
     {
         static RestService rest;
         static void Create(string entity)
@@ -113,6 +114,40 @@ namespace CMY8C0_HFT_2021222.Client
                 rest.Delete(id, "Engine");
             }
         }
+        static void OldestCar()
+        {
+            Console.Write("Oldest car in the database: ");
+            var oldest = rest.Get<Oldest>("stat/OldesCar");
+            Console.WriteLine(oldest[0].CarName);
+            Console.ReadLine();
+        }
+        static void CarsWithV8()
+        {
+            Console.WriteLine("Cars with a V8 engine: ");
+            var v8s = rest.Get<Car>("stat/CarsWithV8");
+            foreach (var item in v8s)
+            {
+                Console.WriteLine(item.Name + "(Engine: "+ item.engine.Name +")");
+            }
+            Console.ReadLine();
+        }
+        static void HighestMileage()
+        {
+            Console.Write("Highest mileage car: ");
+            var highestMileage = rest.Get<HighestMileage>("stat/HighestMileage");
+            Console.WriteLine(highestMileage[0].CarName);
+            Console.ReadLine();
+        }
+        static void GermanPremium()
+        {
+            Console.WriteLine("German premium vehicles (Audi,BMW,Mercedes):");
+            var premiums = rest.Get<Car>("stat/GermanPremium");
+            foreach (var item in premiums)
+            {
+                Console.WriteLine(item.Name);
+            }
+            Console.ReadLine();
+        }
         static void Main(string[] args)
         {
             rest = new RestService("http://localhost:43002/", "Car");
@@ -121,6 +156,10 @@ namespace CMY8C0_HFT_2021222.Client
                 .Add("Create", () => Create("Car"))
                 .Add("Delete", () => Delete("Car"))
                 .Add("Update", () => Update("Car"))
+                .Add("Oldest car", () => OldestCar())
+                .Add("V8 cars", () => CarsWithV8())
+                .Add("Highest milleage", () => HighestMileage())
+                .Add("German premium", () => GermanPremium())
                 .Add("Exit", ConsoleMenu.Close);
             var brandSubMenu = new ConsoleMenu(args, level: 1)
                 .Add("List", () => List("Brand"))
@@ -139,7 +178,6 @@ namespace CMY8C0_HFT_2021222.Client
                 .Add("Brands", () => brandSubMenu.Show())
                 .Add("Engines", () => engineSubMenu.Show())
                 .Add("Exit", ConsoleMenu.Close);
-
             menu.Show();
         }
     }
