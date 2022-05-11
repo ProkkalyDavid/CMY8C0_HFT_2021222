@@ -70,7 +70,7 @@ namespace CMY8C0_HFT_2021222.Repository
             Brand Ford = new Brand { Id = 5, Name = "Ford", Country = "United States of Amrica" };
 
             Engine S63 = new Engine() { Id = 1, Name = "S63", Hp = 617, Torqe = 750, Cylinders = 8 };
-            Engine EB2DTS = new Engine() { Id = 2, Name = " EB2ADTD/EB2DTS", Hp = 182, Torqe = 230, Cylinders = 4 };
+            Engine EB2DTS = new Engine() { Id = 2, Name = "EB2ADTD/EB2DTS", Hp = 182, Torqe = 230, Cylinders = 4 };
             Engine K20C1 = new Engine() { Id = 3, Name = "K20C1 turbocharged I4", Hp = 316, Torqe = 350, Cylinders = 4 };
             Engine OM654 = new Engine() { Id = 4, Name = "OM654 DE20 SCR", Hp = 194, Torqe = 400, Cylinders = 4 };
             Engine TDCi = new Engine() { Id = 5, Name = "Duratorq TDCi", Hp = 170, Torqe = 400, Cylinders = 4 };

@@ -41,7 +41,7 @@ namespace CMY8C0_HFT_2021222.Logic
 
         public IQueryable<Engine> ReadAll()
         {
-            return this.ReadAll();
+            return this.repository.ReadAll();
         }
 
         public void Update(Engine item)
