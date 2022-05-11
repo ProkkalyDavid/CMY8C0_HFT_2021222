@@ -47,5 +47,23 @@ namespace CMY8C0_HFT_2021222.Endpoint.Controllers
         {
             return this.carLogic.GermanPremium();
         }
+
+        [HttpGet]
+        public IEnumerable<CarsaByBrands> CarsByBrands()
+        {
+            return this.carLogic.CarsByBrands();
+        }
+
+        [HttpGet]
+        public IEnumerable<MostHp> MostHps()
+        {
+            return this.engineLogic.MostHps();
+        }
+
+        [HttpGet]
+        public IEnumerable<BrandsByCountries> BrandsByCountries()
+        {
+            return this.brandLogic.BrandsByCountries();
+        }
     }
 }

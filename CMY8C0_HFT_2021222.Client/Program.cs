@@ -114,6 +114,7 @@ namespace CMY8C0_HFT_2021222.Client
                 rest.Delete(id, "Engine");
             }
         }
+        //nonCRUD
         static void OldestCar()
         {
             Console.Write("Oldest car in the database: ");
@@ -148,6 +149,33 @@ namespace CMY8C0_HFT_2021222.Client
             }
             Console.ReadLine();
         }
+        static void CarsByBrands()
+        {
+            Console.WriteLine("Car count by brands:");
+            var cars = rest.Get<CarsaByBrands>("stat/CarsByBrands");
+            foreach (var item in cars)
+            {
+                Console.WriteLine(item.BrandName + ": " + item.CarCount);
+            }
+            Console.ReadLine();
+        }
+        static void MostHps()
+        {
+            Console.Write("The most powerful engine: ");
+            var engine = rest.Get<MostHp>("stat/MostHps");
+            Console.WriteLine(engine[0].EngineName + " (" + engine[0].Hp +")");
+            Console.ReadLine();
+        }
+        static void BrandsByCountries()
+        {
+            Console.WriteLine("Bran count by countries:");
+            var brands = rest.Get<BrandsByCountries>("stat/BrandsByCountries");
+            foreach (var item in brands)
+            {
+                Console.WriteLine(item.Country + ": " + item.BrandCount);
+            }
+            Console.ReadLine();
+        }
         static void Main(string[] args)
         {
             rest = new RestService("http://localhost:43002/", "Car");
@@ -160,18 +188,21 @@ namespace CMY8C0_HFT_2021222.Client
                 .Add("V8 cars", () => CarsWithV8())
                 .Add("Highest milleage", () => HighestMileage())
                 .Add("German premium", () => GermanPremium())
+                .Add("Car counts by brands", () => CarsByBrands())
                 .Add("Exit", ConsoleMenu.Close);
             var brandSubMenu = new ConsoleMenu(args, level: 1)
                 .Add("List", () => List("Brand"))
                 .Add("Create", () => Create("Brand"))
                 .Add("Delete", () => Delete("Brand"))
                 .Add("Update", () => Update("Brand"))
+                .Add("Brand count by countries", () => BrandsByCountries())
                 .Add("Exit", ConsoleMenu.Close);
             var engineSubMenu = new ConsoleMenu(args, level: 1)
                 .Add("List", () => List("Engine"))
                 .Add("Create", () => Create("Engine"))
                 .Add("Delete", () => Delete("Engine"))
                 .Add("Update", () => Update("Engine"))
+                .Add("Most powerful", () => MostHps())
                 .Add("Exit", ConsoleMenu.Close);
             var menu = new ConsoleMenu(args, level: 0)
                 .Add("Cars", () => carSubMenu.Show())
