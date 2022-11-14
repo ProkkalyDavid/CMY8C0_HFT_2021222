@@ -62,7 +62,6 @@ namespace CMY8C0_HFT_2021222.Repository
                     .OnDelete(DeleteBehavior.Restrict);
             });
 
-
             Brand BMW = new Brand() { Id = 1, Name = "BMW", Country = "Germany" };
             Brand Opel = new Brand { Id = 2, Name = "Opel", Country = "France" };
             Brand Honda = new Brand { Id = 3, Name = "Honda", Country = "Japan" };
