@@ -61,13 +61,13 @@ namespace CMY8C0_HFT_2021222.WpfClient
         {
             if (!IsInDesignMode)
             {
-                Engines = new RestCollection<Engine>("http://localhost:43002/", "engine");
+                Engines = new RestCollection<Engine>("http://localhost:43002/", "engine","hub");
                 CreateEngineCommand = new RelayCommand(() =>
                 {
                     Engines.Add(new Engine()
                     {
-                        Name = "igen",
-                        Hp = 10,
+                        Name = SelectedEngine.Name,
+                        Hp = SelectedEngine.Hp
                     });
                 });
                 DeleteEngineCommand = new RelayCommand(
@@ -78,6 +78,11 @@ namespace CMY8C0_HFT_2021222.WpfClient
                     () => Engines.Update(SelectedEngine),
                     () => SelectedEngine != null
                     );
+                SelectedEngine = new Engine()
+                {
+                    Hp = 10,
+                    Name = "Motor neve"
+                };
             }
         }
     }

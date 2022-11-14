@@ -1,3 +1,4 @@
+using CMY8C0_HFT_2021222.Endpoint.Services;
 using CMY8C0_HFT_2021222.Logic;
 using CMY8C0_HFT_2021222.Models;
 using CMY8C0_HFT_2021222.Repository;
@@ -40,6 +41,8 @@ namespace CMY8C0_HFT_2021222.Endpoint
             services.AddTransient<IBrandLogic, BrandLogic>();
             services.AddTransient<IEngineLogic, EngineLogic>();
 
+            services.AddSignalR();
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -72,6 +75,7 @@ namespace CMY8C0_HFT_2021222.Endpoint
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<SignalRHub>("/hub");
             });
         }
     }
