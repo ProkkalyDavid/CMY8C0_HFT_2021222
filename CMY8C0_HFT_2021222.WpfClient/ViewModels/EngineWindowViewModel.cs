@@ -13,9 +13,9 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
-namespace CMY8C0_HFT_2021222.WpfClient
+namespace CMY8C0_HFT_2021222.WpfClient.ViewModels
 {
-    public class MainWindowViewModel : ObservableRecipient
+    public class EngineWindowViewModel : ObservableRecipient
     {
         public RestCollection<Engine> Engines { get; set; }
 
@@ -57,11 +57,11 @@ namespace CMY8C0_HFT_2021222.WpfClient
             }
         }
 
-        public MainWindowViewModel()
+        public EngineWindowViewModel()
         {
             if (!IsInDesignMode)
             {
-                Engines = new RestCollection<Engine>("http://localhost:43002/", "engine","hub");
+                Engines = new RestCollection<Engine>("http://localhost:43002/", "engine", "hub");
                 CreateEngineCommand = new RelayCommand(() =>
                 {
                     Engines.Add(new Engine()

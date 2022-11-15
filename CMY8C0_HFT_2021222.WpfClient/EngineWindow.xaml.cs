@@ -1,5 +1,4 @@
-﻿using CMY8C0_HFT_2021222.WpfClient.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,24 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace CMY8C0_HFT_2021222.WpfClient
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for EngineWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class EngineWindow : Window
     {
-        public MainWindow()
+        public EngineWindow()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
         }
     }
 }
