@@ -34,8 +34,7 @@ namespace CMY8C0_HFT_2021222.WpfClient.ViewModels
                         Name = value.Name,
                         Hp = value.Hp,
                         Cylinders = value.Cylinders,
-                        Torqe = value.Torqe,
-                        Cars = value.Cars
+                        Torqe = value.Torqe
                     };
                 }
                 OnPropertyChanged();
@@ -66,8 +65,12 @@ namespace CMY8C0_HFT_2021222.WpfClient.ViewModels
                 {
                     Engines.Add(new Engine()
                     {
+                        Id = Engines.Count()+1,
                         Name = SelectedEngine.Name,
-                        Hp = SelectedEngine.Hp
+                        Hp = SelectedEngine.Hp,
+                        Cylinders = SelectedEngine.Cylinders,
+                        Torqe = SelectedEngine.Torqe,
+                        Cars = SelectedEngine.Cars
                     });
                 });
                 DeleteEngineCommand = new RelayCommand(
@@ -81,7 +84,7 @@ namespace CMY8C0_HFT_2021222.WpfClient.ViewModels
                 SelectedEngine = new Engine()
                 {
                     Hp = 10,
-                    Name = "Motor neve"
+                    Name = "Engine's name"
                 };
             }
         }
