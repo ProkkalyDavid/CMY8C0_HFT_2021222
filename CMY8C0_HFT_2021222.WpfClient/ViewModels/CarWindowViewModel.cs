@@ -3,9 +3,11 @@ using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace CMY8C0_HFT_2021222.WpfClient.ViewModels
@@ -31,9 +33,20 @@ namespace CMY8C0_HFT_2021222.WpfClient.ViewModels
                         Km = value.Km
                     };
                 }
+                OnPropertyChanged();
+                (DeleteCarCommand as RelayCommand).NotifyCanExecuteChanged();
+                (UpdateCarCommand as RelayCommand).NotifyCanExecuteChanged();
             }
         }
 
+        public static bool IsInDesignMode
+        {
+            get
+            {
+                var prop = DesignerProperties.IsInDesignModeProperty;
+                return (bool)DependencyPropertyDescriptor.FromProperty(prop, typeof(FrameworkElement)).Metadata.DefaultValue;
+            }
+        }
 
         public ICommand CreateCarCommand { get; set; }
         public ICommand DeleteCarCommand { get; set; }
@@ -41,26 +54,33 @@ namespace CMY8C0_HFT_2021222.WpfClient.ViewModels
 
         public CarWindowViewModel()
         {
-            Cars = new RestCollection<Car>("http://localhost:43002/", "car", "hub");
-
-            CreateCarCommand = new RelayCommand(() =>
+            if (!IsInDesignMode)
             {
-                Cars.Add(new Car()
+                Cars = new RestCollection<Car>("http://localhost:43002/", "car", "hub");
+                CreateCarCommand = new RelayCommand(() =>
                 {
-                    Id = Cars.Count()+1,
-                    Name = SelectedCar.Name,
-                    Year = SelectedCar.Year,
-                    Km = SelectedCar.Km
+                    Cars.Add(new Car()
+                    {
+                        Id = Cars.Count() + 1,
+                        Name = SelectedCar.Name,
+                        Year = SelectedCar.Year,
+                        Km = SelectedCar.Km
+                    });
                 });
-            });
-            DeleteCarCommand = new RelayCommand(() =>
-            {
-                Cars.Delete(SelectedCar.Id);
-            });
-            UpdateCarCommand = new RelayCommand(() =>
-            {
-                Cars.Update(SelectedCar);
-            });
+                DeleteCarCommand = new RelayCommand(
+                    () => Cars.Delete(SelectedCar.Id),
+                    () => SelectedCar != null
+                    );
+                UpdateCarCommand = new RelayCommand(
+                    () => Cars.Update(SelectedCar),
+                    () => SelectedCar != null
+                    );
+                SelectedCar = new Car()
+                {
+                    Name = "Cars's name",
+                    Km = 10
+                };
+            }
         }
     }
 }

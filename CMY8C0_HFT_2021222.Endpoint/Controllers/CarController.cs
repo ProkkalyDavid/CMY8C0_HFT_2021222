@@ -17,9 +17,10 @@ namespace CMY8C0_HFT_2021222.Endpoint.Controllers
         ICarLogic logic;
         IHubContext<SignalRHub> hub;
 
-        public CarController(ICarLogic logic)
+        public CarController(ICarLogic logic, IHubContext<SignalRHub> hub)
         {
             this.logic = logic;
+            this.hub = hub;
         }
 
         // GET: api/<CarController>

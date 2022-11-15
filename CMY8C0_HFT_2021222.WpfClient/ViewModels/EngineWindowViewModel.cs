@@ -25,7 +25,6 @@ namespace CMY8C0_HFT_2021222.WpfClient.ViewModels
             get { return selectedEngine; }
             set
             {
-                //SetProperty(ref selectedEngine, value);
                 if (value != null)
                 {
                     selectedEngine = new Engine()
