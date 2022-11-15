@@ -1,5 +1,4 @@
-﻿using CMY8C0_HFT_2021222.WpfClient.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,18 +15,13 @@ using System.Windows.Shapes;
 namespace CMY8C0_HFT_2021222.WpfClient
 {
     /// <summary>
-    /// Interaction logic for BrandWindow.xaml
+    /// Interaction logic for CarsWindow.xaml
     /// </summary>
-    public partial class BrandWindow : Window
+    public partial class CarWindow : Window
     {
-        public BrandWindow()
+        public CarWindow()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            this.UpdateLayout();
         }
     }
 }

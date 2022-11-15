@@ -60,7 +60,7 @@ namespace CMY8C0_HFT_2021222.WpfClient.ViewModels
                 {
                     Brands.Add(new Brand()
                     {
-                        Id = Brands.Count() + 1,
+                        Id = Brands.Count()+1,
                         Name = SelectedBrand.Name
                     });
                 });

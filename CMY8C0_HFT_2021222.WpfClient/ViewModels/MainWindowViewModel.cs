@@ -21,12 +21,14 @@ namespace CMY8C0_HFT_2021222.WpfClient.ViewModels
     {
         BrandWindow BrandWindow;
         EngineWindow EngineWindow;
+        CarWindow CarWindow;
         public ICommand GoToBandsCommand { get; set; }
         public ICommand GoToCarsCommand { get; set; }
         public ICommand GoToEnginesCommand { get; set; }
         public MainWindowViewModel()
         {
             BrandWindow = new BrandWindow();
+            CarWindow = new CarWindow();
             EngineWindow = new EngineWindow();
 
             GoToBandsCommand = new RelayCommand(() =>
@@ -35,7 +37,7 @@ namespace CMY8C0_HFT_2021222.WpfClient.ViewModels
             });
             GoToCarsCommand = new RelayCommand(() =>
             {
-
+                CarWindow.ShowDialog();
             });
             GoToEnginesCommand = new RelayCommand(() =>
             {
