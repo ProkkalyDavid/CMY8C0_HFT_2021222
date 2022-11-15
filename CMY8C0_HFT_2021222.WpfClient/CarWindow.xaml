@@ -4,9 +4,31 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CMY8C0_HFT_2021222.WpfClient"
+        xmlns:vms="clr-namespace:CMY8C0_HFT_2021222.WpfClient.ViewModels"
         mc:Ignorable="d"
         Title="Car Window" Height="450" Width="800">
+    <Window.DataContext>
+        <vms:CarWindowViewModel />
+    </Window.DataContext>
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <ListBox ItemsSource="{Binding Cars}" SelectedItem="{Binding SelectedCar}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Label Content="{Binding Name}" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <StackPanel Grid.Column="1">
+            <Label Content="Name" Background="LightBlue" Padding="10" />
+            <TextBox Text="{Binding SelectedCar.Name}" Padding="10" Margin="0,0,0,30" />
+            <Button Content="Create Car" Command="{Binding CreateCarCommand}" Margin="10" Padding="10" />
+            <Button Content="Delete Car" Command="{Binding DeleteCarCommand}" Margin="10" Padding="10" />
+            <Button Content="Update Car" Command="{Binding UpdateCarCommand}" Margin="10" Padding="10" />
+            <Button Content="Exit" Margin="10,50,10,10" Padding="10" />
+        </StackPanel>
     </Grid>
 </Window>
