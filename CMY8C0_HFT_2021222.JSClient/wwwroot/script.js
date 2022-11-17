@@ -13,10 +13,24 @@ async function getdata() {
 }
 
 function display() {
+    document.getElementById('resultarea').innerHTML = "";
     cars.forEach(t => {
         document.getElementById('resultarea').innerHTML +=
-            "<tr><td>" + t.id + "</td><td>" + t.name + "</td></tr>";
+            "<tr><td>" + t.id + "</td><td>" + t.name + "</td><td>" + `<button type="button" onclick="remove(${t.id})">Delete</button>` + "</td></tr>";
     });
+}
+
+function remove(id) {
+    fetch('http://localhost:43002/car/' + id, {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json', },
+        body: null })
+        .then(response => response)
+        .then(data => {
+            console.log('Succes:', data);
+            getdata();
+        })
+        .catch((error) => { console.error('Error:', error); })
 }
 
 function create() {
