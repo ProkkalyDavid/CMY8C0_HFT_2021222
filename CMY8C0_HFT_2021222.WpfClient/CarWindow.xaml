@@ -28,7 +28,7 @@
             <Button Content="Create Car" Command="{Binding CreateCarCommand}" Margin="10" Padding="10" />
             <Button Content="Delete Car" Command="{Binding DeleteCarCommand}" Margin="10" Padding="10" />
             <Button Content="Update Car" Command="{Binding UpdateCarCommand}" Margin="10" Padding="10" />
-            <Button Content="Exit" Margin="10,50,10,10" Padding="10" />
+            <Button Content="Exit" Margin="10,50,10,10" Padding="10" Click="Button_Click" />
         </StackPanel>
     </Grid>
 </Window>

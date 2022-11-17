@@ -27,7 +27,7 @@ namespace CMY8C0_HFT_2021222.WpfClient
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.UpdateLayout();
+            this.Close();
         }
     }
 }

@@ -1,13 +1,43 @@
 ﻿let cars = [];
-
+let connection;
 getdata();
+setupSignalR();
+
+function setupSignalR() {
+        connection = new signalR.HubConnectionBuilder()
+        .withUrl("http://localhost:43002/hub")
+        .configureLogging(signalR.LogLevel.Information)
+        .build();
+
+    connection.on("CarCreated", (user, message) => {
+        getdata();
+    });
+    connection.on("CarDeleted", (user, message) => {
+        getdata();
+    });
+
+    connection.onclose(async () => {
+        await start();
+    });
+    start();
+}
+
+async function start() {
+    try {
+        await connection.start();
+        console.log("SignalR Connected.");
+    } catch (err) {
+        console.log(err);
+        setTimeout(start, 5000);
+    }
+};
 
 async function getdata() {
     await fetch('http://localhost:43002/car')
         .then(x => x.json())
         .then(y => {
             cars = y;
-            console.log(cars);
+            //console.log(cars);
             display();
         });
 }

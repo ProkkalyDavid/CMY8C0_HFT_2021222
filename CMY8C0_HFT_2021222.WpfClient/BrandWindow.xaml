@@ -28,7 +28,7 @@
             <Button Content="Create Brand" Command="{Binding CreateBrandCommand}" Margin="10" Padding="10" Click="Button_Click"/>
             <Button Content="Delete Brand" Command="{Binding DeleteBrandCommand}" Margin="10" Padding="10" />
             <Button Content="Update Brand" Command="{Binding UpdateBrandCommand}" Margin="10" Padding="10" />
-            <Button Content="Exit" Margin="10,50,10,10" Padding="10" />
+            <Button Content="Exit" Margin="10,50,10,10" Padding="10" Click="Button_Click"/>
         </StackPanel>
     </Grid>
 </Window>

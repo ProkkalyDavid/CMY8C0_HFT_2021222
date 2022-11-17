@@ -28,6 +28,7 @@
             <Button Content="Create Engine" Command="{Binding CreateEngineCommand}" Margin="10" Padding="10" />
             <Button Content="Delete Engine" Command="{Binding DeleteEngineCommand}" Margin="10" Padding="10" />
             <Button Content="Update Engine" Command="{Binding UpdateEngineCommand}" Margin="10" Padding="10" />
+            <Button Content="Exit" Margin="10,50,10,10" Padding="10" Click="Button_Click" />
         </StackPanel>
     </Grid>
 </Window>
