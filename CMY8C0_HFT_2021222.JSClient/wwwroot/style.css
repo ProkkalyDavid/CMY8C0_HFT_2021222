@@ -1,42 +1,61 @@
-﻿table{
+﻿table {
     width: 100%;
 }
 
-table, th, td{
+table, th, td {
     border: 1px solid black;
 }
 
-table{
+table {
     border-collapse: collapse;
 }
 
-th, td{
+th, td {
     padding: 5px
 }
 
-th{
+th {
     background-color: lightblue;
 }
 
-#formdiv{
+#updatediv {
+    display: none;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+    #updatediv label {
+        font-size: 1.5em;
+    }
+
+    #updatediv label, button, input {
+        margin: 5px;
+        padding: 7px;
+    }
+
+    #updatediv label {
+        font-weight: bolder;
+    }
+
+#formdiv {
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;
 }
 
-#formdiv label{
-    font-size: 1.5em;
-}
+    #formdiv label {
+        font-size: 1.5em;
+    }
 
-#formdiv label, button, input{
-    margin: 5px;
-    padding: 7px;
-}
+    #formdiv label, button, input {
+        margin: 5px;
+        padding: 7px;
+    }
 
-#formdiv label{
-    font-weight: bolder;
-}
+    #formdiv label {
+        font-weight: bolder;
+    }
 
-table button{
+table button {
     padding: 2px;
 }

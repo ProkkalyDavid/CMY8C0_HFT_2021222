@@ -1,5 +1,8 @@
 ﻿let cars = [];
 let connection;
+
+let carIdToUpdate = -1;
+
 getdata();
 setupSignalR();
 
@@ -13,6 +16,9 @@ function setupSignalR() {
         getdata();
     });
     connection.on("CarDeleted", (user, message) => {
+        getdata();
+    });
+    connection.on("CarUpdated", (user, message) => {
         getdata();
     });
 
@@ -46,7 +52,10 @@ function display() {
     document.getElementById('resultarea').innerHTML = "";
     cars.forEach(t => {
         document.getElementById('resultarea').innerHTML +=
-            "<tr><td>" + t.id + "</td><td>" + t.name + "</td><td>" + `<button type="button" onclick="remove(${t.id})">Delete</button>` + "</td></tr>";
+            "<tr><td>" + t.id + "</td><td>" + t.name + "</td><td>" +
+            `<button type="button" onclick="remove(${t.id})">Delete</button>` +
+            `<button type="button" onclick="showupdate(${t.id})">Update</button>` +
+            "</td></tr>";
     });
 }
 
@@ -55,6 +64,29 @@ function remove(id) {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json', },
         body: null })
+        .then(response => response)
+        .then(data => {
+            console.log('Succes:', data);
+            getdata();
+        })
+        .catch((error) => { console.error('Error:', error); })
+}
+
+function showupdate(id) {
+    document.getElementById('carNameToUpdate').value = cars.find(t => t['id'] == id)['name']
+    document.getElementById('updatediv').style.display = 'flex';
+    carIdToUpdate = id;
+}
+
+function update() {
+    document.getElementById('updatediv').style.display = 'none';
+    let name = document.getElementById('carNameToUpdate').value;
+    fetch('http://localhost:43002/car', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json', },
+        body: JSON.stringify(
+            { name: name, id: carIdToUpdate })
+    })
         .then(response => response)
         .then(data => {
             console.log('Succes:', data);
