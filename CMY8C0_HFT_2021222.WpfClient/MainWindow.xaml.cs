@@ -30,5 +30,23 @@ namespace CMY8C0_HFT_2021222.WpfClient
         {
             this.Close();
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            BrandWindow brandWindow = new BrandWindow();
+            brandWindow.Show();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            CarWindow carWindow = new CarWindow();
+            carWindow.Show();
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            EngineWindow engineWindow = new EngineWindow();
+            engineWindow.Show();
+        }
     }
 }
